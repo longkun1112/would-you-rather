@@ -59,7 +59,7 @@ const Login = () => {
         </div>
           <div className="img-grid">
              <div className="img-grid-column">
-              <img alt="" src="/assets/logo.svg" />
+              <img className="login-logo" alt="" src="/assets/logo.svg" />
             </div>
           </div>
 
