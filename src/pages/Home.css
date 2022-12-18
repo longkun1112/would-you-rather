@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.homeContainer {
+    margin-top: 16px;
+    width: 500px;
+}

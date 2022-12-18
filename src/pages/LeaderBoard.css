@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.leaderBoardContainer {
+    margin-top: 32px;
+    padding: 0 16px;
+    width: 600px;
+}

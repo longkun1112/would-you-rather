@@ -1,0 +1,21 @@
+.ques-card-header {
+    background: #f3f4f5;
+    border: 1px #d4d4d5 solid;
+    border-radius: 3px;
+    padding: 10px 0;
+}
+
+.ques-card-img { 
+    width: 90px;
+}
+
+.ques-card-button {
+    padding: 10px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #eafdff;
+}
+
+.ques-card-button:hover {
+    cursor: pointer;
+}

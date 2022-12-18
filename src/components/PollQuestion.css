@@ -1,0 +1,31 @@
+.poll-ques-author {
+    background: #f3f4f5;
+    border: 1px #d5d5d6 solid;
+    padding: 10px 0;
+    border-radius: 3px;
+}
+
+.poll-ques-img {
+    width: 90px;
+}
+
+.poll-ques-button {
+    padding: 8px 20px;
+    background: #21ba45;
+    color: #f1fbf3;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.poll-ques-button:hover {
+    cursor: pointer;
+    background: #00AD28;
+}
+
+.not-submmit-poll-ques-button {
+    background: #9ce0ac;
+    padding: 8px 20px;
+    color: #f1fbf3;
+    border-radius: 5px;
+    font-weight: 600;
+}

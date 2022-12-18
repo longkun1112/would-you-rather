@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.newQuestionContainer {
+    width: 500px;
+    margin-top: 32px;
+}
+
+.new-ques-header {
+    border: 1px #d4d4d5 solid;
+    background: #f3f4f5;
+    padding: 10px 0;
+}
