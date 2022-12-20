@@ -1,7 +1,7 @@
 import React from "react";
 import { Tab } from "semantic-ui-react";
 import { useSelector } from "react-redux";
-import { mapValues } from "lodash";
+import { mapValues, orderBy } from "lodash";
 import "./Home.css";
 import QuestionCard from "../components/QuestionCard";
 
@@ -19,7 +19,7 @@ const Home = () => {
       }
     });
 
-    return answeredQuestionsList;
+    return orderBy(answeredQuestionsList, "timestamp", "desc");
   };
 
   const unansweredQuestions = () => {
@@ -31,7 +31,7 @@ const Home = () => {
       }
     });
 
-    return unansweredQuestionsList;
+    return orderBy(unansweredQuestionsList, "timestamp", "desc");
   };
 
   const panes = [
