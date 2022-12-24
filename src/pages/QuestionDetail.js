@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./QuestionDetail.css";
 import PollResult from "../components/PollResult";
@@ -7,8 +7,18 @@ import PollQuestion from "../components/PollQuestion";
 
 
 const QuestionDetail = () => {
-
   const navigate = useNavigate();
+  let location = useLocation();
+
+  useEffect(() => {
+    const auth = localStorage.getItem("auth")
+      if (!auth) {
+        navigate("/login");
+      }
+      localStorage.setItem('location', location.pathname)
+
+  }, [])
+
   const { questionId } = useParams();
   const { users } = useSelector((state) => state.users);
   const { userId } = useSelector((state) => state.auth);

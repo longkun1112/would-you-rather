@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import LeaderBoardCard from "../components/LeaderBoardCard"; 
 import { mapValues, orderBy } from "lodash";
 import "./LeaderBoard.css";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const LeaderBoard = () => {
   const { users } = useSelector((state) => state.users);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const auth = localStorage.getItem("auth")
+      if (!auth) {
+        navigate("/login");
+      }
+  }, [])
 
   const leaderBoardList = () => {
     const _leaderBoardList = [];
@@ -24,6 +32,17 @@ const LeaderBoard = () => {
 
     return orderBy(_leaderBoardList, "totalScore", "desc").slice(0, 3);
   };
+  let location = useLocation();
+
+  useEffect(() => {
+    const auth = localStorage.getItem("auth")
+      if (!auth) {
+        navigate("/login");
+      }
+      localStorage.setItem('location', location.pathname)
+
+      console.log(location);
+  }, [])
 
   return (
      <div className="container">

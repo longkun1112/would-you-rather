@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Divider,
   Form,
@@ -6,7 +6,7 @@ import {
   Segment,
 } from "semantic-ui-react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { addNewQuestion } from "../store/questionsSlice";
 import { formatQuestion } from "../api/data";
@@ -20,6 +20,12 @@ const NewQuestion = () => {
   const { userId } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  useEffect(() => {
+    const auth = localStorage.getItem("auth")
+      if (!auth) {
+        navigate("/login");
+      }
+  }, [])
 
   const isDisabled = optionOneText === "" || optionTwoText === "";
 
@@ -44,6 +50,15 @@ const NewQuestion = () => {
     toast.success('Question add successfully');
     navigate("/");
   };
+  let location = useLocation();
+
+  useEffect(() => {
+    const auth = localStorage.getItem("auth")
+      if (!auth) {
+        navigate("/login");
+      }
+      localStorage.setItem('location', location.pathname)
+  }, [])
 
   return (
     <div className="container">

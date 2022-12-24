@@ -45,7 +45,13 @@ const Login = () => {
       }
     });
     dispatch(authUser(userId));
-    navigate("/");
+    const location = localStorage.getItem('location')
+    if(location) {
+      navigate(location);
+    } else {
+      navigate("/");
+    }
+    localStorage.setItem("auth", "auth");
   };
 
   return (

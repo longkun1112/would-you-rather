@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
 import PrivateRoutes from "./pages/PrivateRoute";
 import Home from "./pages/Home";
@@ -16,6 +16,7 @@ import { ToastContainer } from "react-toastify";
 
 function App() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const initializeDataApp = async () => {
     const users = await _getUsers();
@@ -27,7 +28,17 @@ function App() {
 
   useEffect(() => {
     initializeDataApp();
+    localStorage.removeItem("auth");
   }, [dispatch]);
+
+  let location = useLocation();
+
+  useEffect(() => {
+    const auth = localStorage.getItem("auth")
+      if (!auth) {
+        navigate("/login");
+      }
+  }, [])
 
   return (
     <div className="App">

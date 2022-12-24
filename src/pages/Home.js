@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Tab } from "semantic-ui-react";
 import { useSelector } from "react-redux";
 import { mapValues, orderBy } from "lodash";
 import "./Home.css";
 import QuestionCard from "../components/QuestionCard";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const { userId } = useSelector((state) => state.auth);
   const { users } = useSelector((state) => state.users);
   const { questions } = useSelector((state) => state.questions);
+  const navigate = useNavigate();
+  let location = useLocation();
+
+  useEffect(() => {
+    const auth = localStorage.getItem("auth")
+      if (!auth) {
+        navigate("/login");
+      }
+      localStorage.setItem('location', location.pathname)
+
+  }, [])
 
   const answeredQuestions = () => {
     const answeredQuestionsList = [];

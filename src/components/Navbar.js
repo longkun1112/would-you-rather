@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/authSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Navbar.css";
 
@@ -9,6 +9,7 @@ const NavBar = () => {
   const { userId } = useSelector((state) => state.auth);
   const { users } = useSelector((state) => state.users);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogoutUser = () => {
     Object.keys(users).forEach(function (key) {
@@ -17,7 +18,23 @@ const NavBar = () => {
       }
     });
     dispatch(logout());
+    localStorage.clear();
   };
+
+  const navigateHome = () => {
+    navigate('/');
+    localStorage.setItem("auth", "auth");
+  }
+
+  const navigateQuestion = () => {
+    navigate('/add');
+    localStorage.setItem("auth", "auth");
+  }
+
+  const navigateLeaderboard = () => {
+    navigate('/add');
+    localStorage.setItem("auth", "auth");
+  }
 
   return (
     <>
@@ -25,17 +42,17 @@ const NavBar = () => {
         <div className="nav-menu">
           <div className="nav-menu-left">
             <div className="navbar-common">
-              <Link className="nav-menu-item" to="/">
+              <Link className="nav-menu-item" onClick={navigateHome} to="/">
               Home
               </Link>
             </div>
             <div className="navbar-common">
-              <Link className="nav-menu-item" to="/add">
+              <Link className="nav-menu-item" onClick={navigateQuestion} to="/add">
               New Question
               </Link>
             </div>
             <div className="navbar-common">
-              <Link className="nav-menu-item" to="/leaderboard">
+              <Link className="nav-menu-item" onClick={navigateLeaderboard} to="/leaderboard">
               Leaderboard
               </Link>
             </div>
