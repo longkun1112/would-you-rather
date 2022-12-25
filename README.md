@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Would You Rather Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the starter code for the final assessment project for Udacity's React & Redux course.
 
-## Available Scripts
+This is a web app that lets a user play the “Would You Rather?” game. The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules.
 
-In the project directory, you can run:
+The `data.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` data.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
 
-### `npm start`
+This project uses semantic-ui-react, redux-toolkit, redux-persist:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## What You're Getting
+```bash
+├── README.md - This file.
+├── package.json # npm package manager file
+├── public
+│   ├── assets # User avatar icon.
+│   └── index.html 
+└── src
+    ├── App.css # Styles for your app
+    ├── App.js # This is the root of your app. Contains the route of application and initial data.
+    ├── components  # This folder contains common components for reusing
+    ├── api  # Contains mock database and functionality
+    ├── pages  # This folder contains pages corresponding with the particular route
+    ├── store  # Contains slices of actions and reducers
+    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The router structure includes:
+```bash
+// Private routes (need authentication to reach)
+    ├── '/' - Home screen 
+    ├── '/add' - Add new question screen 
+    ├── '/question/:questionId' - Question details screen 
+    ├── '/leaderboard' - LeaderBoard screen 
 
-### `npm test`
+// Public routes
+    ├── '/login' - Login screen 
+    ├── '*' - Not found screen 
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get started developing right away:
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
